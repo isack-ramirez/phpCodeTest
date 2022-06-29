@@ -29,13 +29,23 @@ $formattedRes = json_decode($response);
 
 $extractedData = $formattedRes->data;
 
-print_r($extractedData);
+
 
 $areaValue1=array();
 $areaValueGreaterThanOne=array();
 
+$j =count( $extractedData);
+for($i=0; $i<$j;$i++){
+   
+    if($extractedData[$i]->area ==1){
+        array_push($areaValue1, $extractedData[$i]);
+    }
+    else{
+        array_push($areaValueGreaterThanOne, $extractedData[$i]);
+    }
 
-
+}
+print_r($areaValueGreaterThanOne);
 
 
 echo "hello world";
