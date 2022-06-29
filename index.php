@@ -23,6 +23,19 @@ if($response===false){
 
 curl_close($ch);
 
-print_r($response);
+
+$formattedRes = json_decode($response);
+
+
+$extractedData = $formattedRes->data;
+
+print_r($extractedData);
+
+$areaValue1=array();
+$areaValueGreaterThanOne=array();
+
+
+
+
 
 echo "hello world";
