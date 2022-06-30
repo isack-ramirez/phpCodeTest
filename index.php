@@ -53,28 +53,8 @@ $html = '
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-
-  padding: 0px;
-  max-width : 50vw;
-}
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-
-  font-size: 30px;
-  text-align: center;
-}
-
-li {
-    list-style-type: none;
-    font-size: small;
-    padding: 5px;
-   }
-</style>
+<link rel="stylesheet" href="./style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -86,6 +66,14 @@ li {
   <div class="grid-item"id="grid-item2" ><h6>Floor ID </h6></div>
   <div class="grid-item" id="grid-item3"><h6>Last updated</h6></div>  
 </div>
+
+<div class="grid-container">
+
+  <div class="grid-item" id="grid-item4"><h6>Unit number</h6></div>
+  <div class="grid-item"id="grid-item5" ><h6>Floor ID </h6></div>
+  <div class="grid-item" id="grid-item6"><h6>Last updated</h6></div>  
+</div>
+
 
 </body>
 </html>';
@@ -140,6 +128,53 @@ for($i=0;$i<$j;$i++){
     $descBox->appendChild($appended);
  
 }
+
+$j = count($areaValueGreaterThanOne);
+
+for($i=0;$i<$j;$i++){
+ 
+    $test = $areaValueGreaterThanOne[$i]->unit_number;
+    $descBox = $doc->getElementById('grid-item4');
+    $appended = $doc->createElement('li', $test);
+    $descBox->appendChild($appended);
+
+    $descBox = $doc->getElementById('grid-item4');
+    $appended = $doc->createElement('hr', $test);
+
+  
+    $descBox->appendChild($appended);
+
+
+    $test = $areaValueGreaterThanOne[$i]->floor_id;
+    $descBox = $doc->getElementById('grid-item5');
+    $appended = $doc->createElement('li', $test);
+    $descBox->appendChild($appended);
+
+    $descBox = $doc->getElementById('grid-item5');
+    $appended = $doc->createElement('hr', $test);
+
+  
+    $descBox->appendChild($appended);
+
+    $test =  $areaValueGreaterThanOne[$i]->updated_at;
+  
+
+    $time = strtotime($test);
+
+    $fixed = date(' F jS Y \a\t g:ia', $time);
+
+    $descBox = $doc->getElementById('grid-item6');
+    $appended = $doc->createElement('li', $fixed);
+    $descBox->appendChild($appended);
+
+    $descBox = $doc->getElementById('grid-item6');
+    $appended = $doc->createElement('hr', $test);
+
+  
+    $descBox->appendChild($appended);
+}
+
+
 echo $doc->saveHTML();
 
 

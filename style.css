@@ -1,0 +1,33 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: auto;
+    padding-top: 20px;
+    max-width : 90vw;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(0, 0, 0, 0.8);
+  
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  li {
+      list-style-type: none;
+      font-size: medium;
+      padding: 5px;
+      
+     }
+  
+     @media  screen and (max-width: 680px) {
+
+      li{
+       height: 100px;
+       font-size: large;
+ 
+      }
+      h6{
+       margin: 4px;
+      }
+    }
